@@ -22,7 +22,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Ubuntu-x64
-          path: /home/runner/work/janix_game/janix_game/main
+          path: /home/runner/work/janix_game/janix_game/main_x64
   
   Windows-build:
     runs-on: windows-latest
