@@ -36,7 +36,7 @@ jobs:
         shell: powershell
         run: ls
       - name: build executable file
-        run: cl main.c -o main
+        run: cl main.c
       - name: list builded files
         shell: powershell
         run: ls
