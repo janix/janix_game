@@ -25,12 +25,13 @@ jobs:
           path: /home/runner/work/janix_game/janix_game/main_x64
   
   Arm64-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
       - uses: uraimo/run-on-arch-action@v2
         with:
           arch: aarch64
+          distro: ubuntu18.04
           run: gcc main.c -o main_arm64
       - name: check directory location
         run: pwd
