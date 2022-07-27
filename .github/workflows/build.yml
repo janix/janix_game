@@ -31,12 +31,11 @@ jobs:
       - uses: uraimo/run-on-arch-action@v2
         with:
           arch: aarch64
+          run: gcc main.c -o main_arm64
       - name: check directory location
         run: pwd
       - name: list files
         run: ls -laGh
-      - name: build executable file
-        run: gcc main.c -o main_arm64
       - name: check generated files
         run: ls -laGh
       - uses: actions/upload-artifact@v2
