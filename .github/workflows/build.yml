@@ -24,6 +24,26 @@ jobs:
           name: Ubuntu-x64
           path: /home/runner/work/janix_game/janix_game/main_x64
   
+  Arm64-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: uraimo/run-on-arch-action@v2
+        with:
+          arch: aarch64
+      - name: check directory location
+        run: pwd
+      - name: list files
+        run: ls -laGh
+      - name: build executable file
+        run: gcc main.c -o main_arm64
+      - name: check generated files
+        run: ls -laGh
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Ubuntu-aarch64
+          path: /home/runner/work/janix_game/janix_game/main_arm64
+  
   Windows-build:
     runs-on: windows-latest
     steps:
