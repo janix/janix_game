@@ -43,4 +43,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Windows-x64
-          path: D:\a\janix_game\janix_game\main
+          path: D:\a\janix_game\janix_game\main.exe
