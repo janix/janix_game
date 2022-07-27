@@ -26,10 +26,12 @@ jobs:
   
   Arm64-build:
     runs-on: ubuntu-latest
-    with:
-      arch: aarch64
+    name: Ubuntu ARM64 Build
     steps:
-      - uses: actions/checkout@v3        
+      - uses: actions/checkout@v3
+      - uses: uraimo/run-on-arch-action@v2
+        with:
+          arch: aarch64
       - name: check directory location
         run: pwd
       - name: list files
