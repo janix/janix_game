@@ -32,7 +32,7 @@ jobs:
       - uses: uraimo/run-on-arch-action@v2
         with:
           arch: aarch64
-          distro: ubuntu-latest
+          distro: ubuntu-18.04
           run: gcc main.c -o main_arm64
       - name: check directory location
         run: pwd        
