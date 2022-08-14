@@ -1,4 +1,4 @@
 main
 .vscode
 *.zip
-main_x64
+main.dSYM
