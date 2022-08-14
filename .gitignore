@@ -2,3 +2,6 @@ main
 .vscode
 *.zip
 main.dSYM
+glad/.DS_Store
+glad/include/.DS_Store
+prog

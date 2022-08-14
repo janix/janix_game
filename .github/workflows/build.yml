@@ -7,6 +7,25 @@ on:
     branches: [ main ]
 
 jobs:
+  MacOS-Build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install SDL packages
+        run: brew install sdl2 sdl2_image
+      - name: check directory location
+        run: pwd
+      - name: list files
+        run: ls -laGh
+      - name: build executable file
+        run: clang main.c ./glad/src/glad.c -o prog -I/opt/homebrew/include/SDL2 -I./glad/include -L/opt/homebrew/lib/ -lSDL2
+      - name: check generated files
+        run: ls -laGh
+      - uses: actions/upload-artifact@v2
+        with:
+          name: macos-m1
+          path: `pwd`/prog
+
   Ubuntu-build:
     runs-on: ubuntu-latest
     steps:
@@ -24,24 +43,24 @@ jobs:
           name: Ubuntu-x64
           path: /home/runner/work/janix_game/janix_game/main_x64
   
-  Arm64-build:
-    runs-on: ubuntu-18.04
-    name: Ubuntu ARM64 Build
-    steps:
-      - uses: actions/checkout@v3
-      - uses: uraimo/run-on-arch-action@v2
-        with:
-          arch: armv7
-          distro: ubuntu-18.04
-          run: gcc main.c -o main_arm64
-      - name: check directory location
-        run: pwd        
-      - name: check generated files
-        run: ls -laGh
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Ubuntu-aarch64
-          path: /home/runner/work/janix_game/janix_game/main_arm64
+  # Arm64-build:
+  #   runs-on: ubuntu-18.04
+  #   name: Ubuntu ARM64 Build
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: uraimo/run-on-arch-action@v2
+  #       with:
+  #         arch: armv7
+  #         distro: ubuntu-18.04
+  #         run: gcc main.c -o main_arm64
+  #     - name: check directory location
+  #       run: pwd        
+  #     - name: check generated files
+  #       run: ls -laGh
+  #     - uses: actions/upload-artifact@v2
+  #       with:
+  #         name: Ubuntu-aarch64
+  #         path: /home/runner/work/janix_game/janix_game/main_arm64
   
   Windows-build:
     runs-on: windows-latest
