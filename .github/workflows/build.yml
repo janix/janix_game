@@ -24,7 +24,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: macos-m1
-          path: ${{env.working-directory}}/prog
+          path: prog
 
   Ubuntu-build:
     runs-on: ubuntu-latest
