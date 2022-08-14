@@ -18,7 +18,7 @@ jobs:
       - name: list files
         run: ls -laGh
       - name: build executable file
-        run: clang main.c ./glad/src/glad.c -o prog -I/opt/homebrew/include/SDL2 -I./glad/include -L/opt/homebrew/lib/ -lSDL2
+        run: clang main.c ./glad/src/glad.c -o prog -I/usr/local/Cellar/sdl2/2.0.22/include/SDL2 -I./glad/include -L/usr/local/Cellar/sdl2/2.0.22/lib/ -lSDL2
       - name: check generated files
         run: ls -laGh
       - uses: actions/upload-artifact@v2
